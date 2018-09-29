@@ -4,11 +4,19 @@ class Child extends Component{
         super(props);
         this.message = "啦啦啦，我是卖报的小行家"
     }
+    componentWillReceiveProps(newProps){
+        console.log(newProps)
+        console.log('componentWillReceiveProps')
+    }
+    componentWillUnmount(){
+        console.log('componentWillUnmount')
+    }
     render(){
         return(
             <div>
                 <h2 onClick={()=>this.props.fromParent(this.message)}>点击我改变父组件哦</h2>
                 <p>{this.props.userInfo}</p>
+                <p>{this.props.message}</p>
                 <input type="text" ref="msg" onKeyDown={(ev)=>this.props.changeMsg(ev,this.refs.msg.value)}></input>
             </div>
         )
