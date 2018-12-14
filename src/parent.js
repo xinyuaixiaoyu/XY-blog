@@ -21,9 +21,14 @@ class Parent extends Component{
     }
     remove(index){
       this.state.list.splice(index,1)
-      this.setState({
-          list:this.state.list
+      this.setState({list:this.state.list},()=>{
+          console.log('已经更改了state')
       })
+    //   this.setState((preState,props)=>{
+    //       console.log(preState)
+    //       return {list:preState.list}
+    //   })
+      this.children.getChildren();
     }
     fromParent(msg){
      setTimeout(
@@ -40,7 +45,7 @@ class Parent extends Component{
                 <h2>我是父组件</h2>
                 <p>{this.state.message}</p>
                 <ul>{todolist}</ul>
-                <Child userInfo = {this.user} fromParent = {this.fromParent} changeMsg={this.changeMsg}/>
+                <Child userInfo = {this.user} fromParent = {this.fromParent} changeMsg={this.changeMsg} ref={(child)=> { this.children = child }}/>
             </div>
         )
     }

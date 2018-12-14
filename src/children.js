@@ -3,14 +3,18 @@ class Child extends Component{
     constructor(props){
         super(props);
         this.message = "啦啦啦，我是卖报的小行家"
+        this.getChildren = this.getChildren.bind(Child)
     }
     componentWillReceiveProps(newProps){
-        console.log(newProps)
-        console.log('componentWillReceiveProps')
+        // console.log(newProps)
+        // console.log('componentWillReceiveProps')
     }
     componentWillUnmount(){
-        console.log('componentWillUnmount')
+        // console.log('componentWillUnmount')
     }
+    getChildren(){
+        console.log(1)
+    } 
     render(){
         return(
             <div>

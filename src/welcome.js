@@ -18,7 +18,7 @@ class Welcome extends Component{
                             <i></i>
                         </p>
                         <div>
-                            <span className="one"></span>
+                            <span className="one" style={{'width':'100px'}}></span>
                             <span className="two"></span>
                         </div>
                     </div>
