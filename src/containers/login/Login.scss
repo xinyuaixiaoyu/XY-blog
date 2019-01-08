@@ -1,0 +1,93 @@
+.login-containers{
+    width: 100%;
+    height: 100%;
+    background: url(./hero-bg.jpg) no-repeat fixed 0 0;
+    background-size: cover;
+    .login-content{
+        width: 1000px;
+        height: 100%;
+        margin: 0 auto;
+        overflow: hidden;
+        .main-menu{
+            background: rgba(255, 255, 255, 0.15);
+            width: 1000px;
+            height: 70px;
+            margin-top: 40px;
+            h2{
+                float: left;
+                height: 70px;
+                i{
+                    width: 40px;
+                    height: 40px;
+                    background-image: url(./lu.jpg);
+                    // background: white;
+                    border-radius: 50%;
+                    margin: 15px 20px 0 10px;
+                    float: left;
+                }
+                b{
+                    color: white;
+                    float: left;
+                    height: 70px;
+                    font-size: 20px;
+                    line-height: 70px;
+                }
+            }
+            ul{
+                float: right;
+                display: flex;
+                height: 100%;
+                li{
+                    padding: 0 8px;
+                    margin-right: 20px;
+                    .icon{
+                        color: white;
+                        font-size: 40px;
+                        line-height: 70px;
+                    }
+                }
+            }
+        }
+    }
+}
+.main-content{
+    width: 1000px;
+    height: 100%;
+    .main-content-left{
+        float: left;
+        margin-top: 300px;
+        width: 580px;
+        h6{
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 2px;
+            color: white;
+            text-transform: uppercase
+        }
+        h1{
+            margin: 20px 0;
+            color: white;
+            font-size: 60px;
+            text-transform: uppercase;
+        }
+        p{
+            margin: 20px 0;
+            color: white;
+            font-size: 14px;
+            font-weight: 300;
+            box-sizing: border-box;
+            line-height: 30px;
+        }
+        a{
+            text-decoration: none;
+            background-color: #f8b600;
+            color: white;
+            line-height: 42px;
+            display: inline-block;
+            padding: 0 30px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+    }
+}
