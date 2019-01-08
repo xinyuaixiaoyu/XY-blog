@@ -1,0 +1,36 @@
+.menu{
+	ul{
+		li{
+			height: 170px;
+			width: 170px;
+			color: black;
+			background: white;
+			margin: 40px 0;
+			overflow:hidden;
+			p{
+				font-size: 36px;
+				text-align: center;
+				margin: 40px 0 10px 0;
+				color: white;
+			}
+			h2{
+				font-size: 18px;
+				font-weight: normal;
+				text-align: center;
+				color: white;
+			}
+		}
+		li:nth-child(1){
+			background: #207d59;
+		}
+		li:nth-child(2){
+			background: #3b5b8e;
+		}
+		li:nth-child(3){
+			background: #5c9faf;
+		}
+		li:nth-child(4){
+			background: #b85b53;
+		}
+	}
+}

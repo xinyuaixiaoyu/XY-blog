@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './index.scss';
 import { Provider } from 'react-redux'
-// import Parent from './parent'
-import Welcome from './welcome';
-// import App from './App';
-import store from './store/store';
+import BasicLayouts from './layouts/BasicLayouts.jsx';
+import store from './store/index';
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<Provider store={store}><Welcome/></Provider>, document.getElementById('root'));
+ReactDOM.render(
+    <Provider store={store}>
+        <BasicLayouts/>
+    </Provider>, 
+    document.getElementById('root'));
 registerServiceWorker();
