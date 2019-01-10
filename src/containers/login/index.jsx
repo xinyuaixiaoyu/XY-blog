@@ -3,6 +3,20 @@ import './Login.scss';
 import { Icon } from 'antd';
 
 export default class Login extends Component {
+    constructor(props){
+        super(props);
+    }
+    
+    state = {
+        menuNum: 1
+    }
+
+    changeMenuNum(menuNum){
+        this.setState({
+            menuNum
+        })
+    }
+
     render () {
         return (
             <div className="login-containers">
@@ -27,6 +41,32 @@ export default class Login extends Component {
                             <a href="#">Get Started</a>
                         </div>
                         <p className="main-content-right">
+                            <h3>
+                                <button onClick={ () => this.changeMenuNum(1) } className={this.state.menuNum === 1 ? 'btn-choose' : 'btn'}>login</button>
+                                <button onClick={ () => this.changeMenuNum(2) } className={this.state.menuNum === 2 ? 'btn-choose' : 'btn'}>register</button>
+                                <button onClick={ () => this.changeMenuNum(3) } className={this.state.menuNum === 3 ? 'btn-choose' : 'btn'}>forget password</button>
+                            </h3>
+                            {
+                                this.state.menuNum === 1 && 
+                                <form>
+                                    <input type="text" placeholder="请输入用户名"></input>
+                                    <input type="password" placeholder="请输入密码"></input>
+                                    <button className="login-btn">登录</button>
+                                </form>
+                            }
+                            {
+                                this.state.menuNum === 2 && 
+                                <form>
+                                    <input type="text" placeholder="请输入用户名"></input>
+                                    <input type="password" placeholder="请输入密码"></input>
+                                    <input type="password" placeholder="请重复输入密码"></input>
+                                    <button className="register-btn">注册</button>
+                                </form>
+                            }
+                            {
+                                this.state.menuNum === 3 && 
+                                <div style={{padding:'30px',color:'red',background:'#fff',textAlign:'center'}}>暂无该功能,请联系博主进行密码重置</div>
+                            }
                         </p>
                     </div>
                 </div>
