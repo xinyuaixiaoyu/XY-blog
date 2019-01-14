@@ -1,7 +1,7 @@
 .login-containers{
     width: 100%;
     height: 100%;
-    background: url(./hero-bg.jpg) no-repeat fixed 0 0;
+    background: url(../../static/images/hero-bg.jpg) no-repeat fixed 0 0;
     background-size: cover;
     .login-content{
         width: 1000px;
@@ -19,8 +19,7 @@
                 i{
                     width: 40px;
                     height: 40px;
-                    background-image: url(./lu.jpg);
-                    // background: white;
+                    background-image: url(../../static/images/lu.jpg);
                     border-radius: 50%;
                     margin: 15px 20px 0 10px;
                     float: left;
@@ -31,6 +30,10 @@
                     height: 70px;
                     font-size: 20px;
                     line-height: 70px;
+                    animation: loadText 3s steps(11) forwards;
+                    overflow: hidden;
+                    width: 9em;
+                    white-space: nowrap;
                 }
             }
             ul{
@@ -62,13 +65,15 @@
             font-size: 14px;
             letter-spacing: 2px;
             color: white;
-            text-transform: uppercase
+            text-transform: uppercase;
+            animation: leftTopIn 1s linear 1;
         }
         h1{
             margin: 20px 0;
             color: white;
             font-size: 60px;
             text-transform: uppercase;
+            animation: rightTopIn 2s linear 1;
         }
         p{
             margin: 20px 0;
@@ -77,10 +82,13 @@
             font-weight: 300;
             box-sizing: border-box;
             line-height: 30px;
+            animation: leftBottomIn 3s linear 1;
+            letter-spacing: 2px;
         }
         a{
             text-decoration: none;
             background-color: #f8b600;
+            transition: background-color 0.5s;
             color: white;
             line-height: 42px;
             display: inline-block;
@@ -88,11 +96,17 @@
             border: none;
             font-weight: 500;
             cursor: pointer;
+            animation: rightBottomIn 4s linear 1;
+        }
+        a:hover{
+            transition: background-color 0.5s;
+            background-color: #222;
         }
     }
     .main-content-right{
         float: right;
         margin-top: 200px;
+        animation: upDown 4s linear 1;
         h3{
             button{
                 text-transform: uppercase;
@@ -100,7 +114,7 @@
                 font-size: 13px;
                 margin-right: 1px;
                 border: none;
-                padding: 10px 16px;
+                padding: 16px 16px;
                 outline: none;
             }
             .btn{
@@ -158,5 +172,62 @@
                 outline: none;
             }
         }
+    }
+}
+
+@keyframes upDown {
+    0% {transform: translateY(1000px)}
+    25% {transform: translateY(0)}
+    50% {transform: translateY(100px)}
+    75% {transform: translateY(0)}
+    85% {transform: translateY(30px)}
+	100% {transform: translateY(0)}
+}
+@keyframes rightTopIn {
+    from {
+        transform: translate3d(2000px, -1000px ,200px);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0 ,0);
+        opacity: 1;
+    }
+}
+@keyframes leftTopIn {
+    from {
+        transform: translate3d(-1000px, -1000px ,200px);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0 ,0);
+        opacity: 1;
+    }
+}
+@keyframes leftBottomIn {
+    from {
+        transform: translate3d(-1000px, 1000px ,200px);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0 ,0);
+        opacity: 1;
+    }
+}
+@keyframes rightBottomIn {
+    from {
+        transform: translate3d(2000px, 1000px ,200px);
+        opacity: 0;
+    }
+    to {
+        transform: translate3d(0, 0 ,0);
+        opacity: 1;
+    }
+}
+@keyframes loadText {
+    from {
+        width: 0;
+    }
+    to {
+        width: 9em;
     }
 }

@@ -38,7 +38,7 @@ export default class Login extends Component {
                             <h6>AWAY FROM MONOTONOUS LIFE</h6>
                             <h1>MAGICAL TRAVEL</h1>
                             <p>Welcome to my blog, Children without umbrellas must run hard,visitors please click this button to enter my life</p>
-                            <a href="#">Get Started</a>
+                            <a href="#" onClick={this.props.hideLogin}>Get Started</a>
                         </div>
                         <p className="main-content-right">
                             <h3>
