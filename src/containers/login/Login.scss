@@ -30,7 +30,7 @@
                     height: 70px;
                     font-size: 20px;
                     line-height: 70px;
-                    animation: loadText 3s steps(11) forwards;
+                    // animation: loadText 3s steps(11) forwards;
                     overflow: hidden;
                     width: 9em;
                     white-space: nowrap;
@@ -178,7 +178,7 @@
 @keyframes upDown {
     0% {transform: translateY(1000px)}
     25% {transform: translateY(0)}
-    50% {transform: translateY(100px)}
+    50% {transform: translateY(200px)}
     75% {transform: translateY(0)}
     85% {transform: translateY(30px)}
 	100% {transform: translateY(0)}
