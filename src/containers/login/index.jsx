@@ -40,7 +40,7 @@ export default class Login extends Component {
                             <p>Welcome to my blog, Children without umbrellas must run hard,visitors please click this button to enter my life</p>
                             <a href="#" onClick={this.props.hideLogin}>Get Started</a>
                         </div>
-                        <p className="main-content-right">
+                        <div className="main-content-right">
                             <h3>
                                 <button onClick={ () => this.changeMenuNum(1) } className={this.state.menuNum === 1 ? 'btn-choose' : 'btn'}>login</button>
                                 <button onClick={ () => this.changeMenuNum(2) } className={this.state.menuNum === 2 ? 'btn-choose' : 'btn'}>register</button>
@@ -67,7 +67,7 @@ export default class Login extends Component {
                                 this.state.menuNum === 3 && 
                                 <div style={{padding:'30px',color:'red',background:'#fff',textAlign:'center'}}>暂无该功能,请联系博主进行密码重置</div>
                             }
-                        </p>
+                        </div>
                     </div>
                 </div>
             </div>

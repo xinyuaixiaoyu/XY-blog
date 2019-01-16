@@ -3,6 +3,7 @@ import Header from '../components/Header/index.jsx';
 import Menu from '../components/Menu';
 import Login from '../containers/login';
 // import { Route, Switch, Redirect } from 'react-router-dom';
+import Pagination from '../components/Pagination';
 import './BasicLayouts.scss';
 
 class BasicLayouts extends Component {
@@ -27,8 +28,9 @@ class BasicLayouts extends Component {
 					<Header showLogin={this.showLogin}></Header>
 					<div className="container">
 						<div className="content">
-							<p className="content-left">
-							</p>
+							<div className="content-left">
+								<Pagination current={1} total={55}></Pagination>
+							</div>
 							<div className="content-right">
 								<Menu></Menu>
 							</div>
