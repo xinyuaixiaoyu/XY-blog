@@ -5,38 +5,39 @@ export default class Pagination extends Component {
 	constructor(props){
 		super(props);
 		this.state = {
-			current: 1,
-			total: 0
+			current: 1
 		}
-	}
-
-	componentDidMount = () => {
-		const { total } = this.props;
-		this.setState({
-			total
-		})
 	}
 
 	changePage(current){
 		this.setState({
 			current
-		})
+		});
+		this.props.currentChange(current)
 	}
 
-	prevPage = () => {
+	prevPage = async () => {
 		const { current } = this.state;
-		if(current > 1) this.setState({current: current - 1})
+		if(current > 1){
+			this.setState({current: current - 1})
+			this.props.currentChange(current - 1)
+		}
 	}
 
-	nextPage = () => {
-		const { total, current } = this.state;
-		const totalPage = Math.ceil(total/10);
-		if(current !== totalPage) this.setState({current: current + 1})
+	nextPage = async () => {
+		const { current} = this.state;
+		const { total, pageSize } = this.props;
+		const totalPage = Math.ceil(total/pageSize);
+		if(current !== totalPage){
+			this.setState({current: current + 1})
+			this.props.currentChange(current + 1)
+		}
 	}
 
 	render () {
-		const { total, current } = this.state;
-		const totalPage = Math.ceil(total/10);
+		const { current } = this.state;
+		const { total, pageSize } = this.props;
+		const totalPage = Math.ceil(total/pageSize);
 		const list = [];
 		if(totalPage > 1) list.push(
 			<li key={0} className={current !== 1 ? 'btn' : 'disabled-btn'} 
@@ -61,6 +62,9 @@ export default class Pagination extends Component {
 				<ul className="pagination-content">
 					{ list }
 				</ul>
+				<select>
+					<option></option>
+				</select>
 			</div>
 		)
 	}
