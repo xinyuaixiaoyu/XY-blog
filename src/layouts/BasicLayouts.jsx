@@ -12,12 +12,11 @@ class BasicLayouts extends Component {
 	state = {
 		isLogin: false,
 		total: 0,
-		listData: [],
-		pageSize: 5
+		listData: []
 	}
 
-  componentWillMount () {
-		this.currentChange(1)
+  componentWillMount(){
+		this.currentChange()
 	}
 
 	showLogin = () => {
@@ -28,8 +27,7 @@ class BasicLayouts extends Component {
 		this.setState({isLogin: true})
 	}
 	
-	currentChange = (current) => {
-		const { pageSize } = this.state;
+	currentChange = (current, pageSize) => {
 		axios.post('http://localhost:8888/userList',{current, pageSize},{
 			headers:{
 				contentType: "application/json",
@@ -47,7 +45,7 @@ class BasicLayouts extends Component {
 	}
 
 	render () {
-		const { isLogin, total, listData, pageSize } = this.state
+		const { isLogin, total, listData } = this.state
 		return (
 			<div className="app-container">
 				<div className="tab-home">
@@ -67,7 +65,7 @@ class BasicLayouts extends Component {
 							</ul>
 							{
 								total > 0 && 
-								<Pagination total={total} pageSize={pageSize} currentChange={this.currentChange}></Pagination>
+								<Pagination total={total} pageList={[2,3,4,5,10]} currentChange={this.currentChange} showTotal={true} showQuickJumper={true}></Pagination>
 							}
 							</div>
 							<div className="content-right">
@@ -76,9 +74,9 @@ class BasicLayouts extends Component {
 						</div>
 					</div>
 				</div> 
-				<div className={isLogin ? 'login-hide' : 'login-show'}>
+				{/* <div className={isLogin ? 'login-hide' : 'login-show'}>
 					<Login hideLogin={this.hideLogin}></Login>
-				</div>
+				</div> */}
 			</div>
 		)
 	}

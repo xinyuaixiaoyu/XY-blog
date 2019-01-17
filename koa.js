@@ -56,7 +56,7 @@ function toRegister (name, password) {
 router.post('/userList', async ctx => {
 	const { current, pageSize	} = ctx.request.body;
 	try {
-		const res = await User.find().limit(Number(pageSize)).skip((current-1)*Number(pageSize))
+		const res = await User.find().limit(Number(pageSize || 5)).skip(((current || 1)-1)*Number(pageSize || 5))
 		const totalRes = await User.find({})
 		ctx.body = {
 			code: 200,
