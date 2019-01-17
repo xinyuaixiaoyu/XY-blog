@@ -67,28 +67,100 @@ export default class Pagination extends Component {
 		const { total, pageList, showTotal, showQuickJumper } = this.props;
 		const totalPage = Math.ceil(total/currentPageSize);
 		const list = [];
-		if(totalPage > 1) list.push(
-			<li key={0} className={current !== 1 ? 'btn' : 'disabled-btn'} 
-				onClick={this.prevPage}>
-				上一页
-			</li>
-		)
+		const ellipsisList = [];
 		for(let i = 0;i < totalPage;i++){
 			list.push(
 			<li key={i + 1} onClick={() => this.changePage(i + 1)} className={current === i + 1 ? 'currentBtn' : 'btn'}>
 				{i + 1}
 			</li>)
 		}
-		if(totalPage > 1) list.push(
-			<li key={totalPage + 2} className={current !== totalPage ? 'btn' : 'disabled-btn'} 
-				onClick={this.nextPage}>
-				下一页
-			</li>
-		)
+		if(totalPage > 7 && current < 5) {
+			for(let i = 1; i <= 5; i++){
+				ellipsisList.push(
+					<li key={i} onClick={() => this.changePage(i)} className={current === i ? 'currentBtn' : 'btn'}>
+						{i}
+					</li>
+				)
+			}
+			ellipsisList.push(
+				<li key={totalPage - 1}>
+					...
+				</li>
+			)
+			ellipsisList.push(
+				<li key={totalPage} onClick={() => this.changePage(totalPage)} className={current === totalPage ? 'currentBtn' : 'btn'}>
+					{totalPage}
+				</li>
+			)
+		}
+		if(totalPage > 7 && current >= totalPage - 4){
+			ellipsisList.push(
+				<li key={1} onClick={() => this.changePage(1)} className={current === 1 ? 'currentBtn' : 'btn'}>
+					{1}
+				</li>
+			)
+			ellipsisList.push(
+				<li key={2}>
+					...
+				</li>
+			)
+			for(let i = totalPage - 4; i <= totalPage; i++){
+				ellipsisList.push(
+					<li key={i} onClick={() => this.changePage(i)} className={current === i ? 'currentBtn' : 'btn'}>
+						{i}
+					</li>
+				)
+			}
+		}
+		if(totalPage > 7 && current >= 5 && current < totalPage - 4){
+			ellipsisList.push(
+				<li key={1} onClick={() => this.changePage(1)} className={current === 1 ? 'currentBtn' : 'btn'}>
+					{1}
+				</li>
+			)
+			ellipsisList.push(
+				<li key={current - 2}>
+					...
+				</li>
+			)
+			for(let i = current - 1; i <= current + 1; i++){
+				ellipsisList.push(
+					<li key={i} onClick={() => this.changePage(i)} className={current === i ? 'currentBtn' : 'btn'}>
+						{i}
+					</li>
+				)
+			}
+			ellipsisList.push(
+				<li key={current + 2}>
+					...
+				</li>
+			)
+			ellipsisList.push(
+				<li key={totalPage} onClick={() => this.changePage(totalPage)} className={current === totalPage ? 'currentBtn' : 'btn'}>
+					{totalPage}
+				</li>
+			)
+		}
 		return (
 			<div className="app-pagination">
 				<ul className="pagination-content">
-					{ list }
+					{
+						totalPage > 1 && 
+						<li key={0} className={current !== 1 ? 'btn' : 'disabled-btn'} 
+							onClick={this.prevPage}>
+							上一页
+					    </li>
+					}
+					{
+						totalPage <= 7 ? list : ellipsisList
+					}
+					{
+						totalPage > 1 && 
+						<li key={totalPage + 2} className={current !== totalPage ? 'btn' : 'disabled-btn'} 
+							onClick={this.nextPage}>
+							下一页
+						</li>
+					}
 				</ul>
 				<div className="show-current-page"><i>{current}</i>/{totalPage}</div>
 				{

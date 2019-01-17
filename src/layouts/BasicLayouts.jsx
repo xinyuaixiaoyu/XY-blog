@@ -65,7 +65,7 @@ class BasicLayouts extends Component {
 							</ul>
 							{
 								total > 0 && 
-								<Pagination total={total} pageList={[2,3,4,5,10]} currentChange={this.currentChange} showTotal={true} showQuickJumper={true}></Pagination>
+								<Pagination total={total} pageList={[1,2,3,4,5,10]} currentChange={this.currentChange} showTotal={true} showQuickJumper={true}></Pagination>
 							}
 							</div>
 							<div className="content-right">
