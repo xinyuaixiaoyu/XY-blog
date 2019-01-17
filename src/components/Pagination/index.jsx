@@ -90,6 +90,7 @@ export default class Pagination extends Component {
 				<ul className="pagination-content">
 					{ list }
 				</ul>
+				<div className="show-current-page"><i>{current}</i>/{totalPage}</div>
 				{
 					showQuickJumper && <div className="quicker-jump">
 						<input onChange={this.handelChange} defaultValue={inputValue}></input>
