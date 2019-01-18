@@ -148,7 +148,7 @@ export default class Pagination extends Component {
 						totalPage > 1 && 
 						<li key={0} className={current !== 1 ? 'btn' : 'disabled-btn'} 
 							onClick={this.prevPage}>
-							上一页
+							{'<'}
 					    </li>
 					}
 					{
@@ -158,7 +158,7 @@ export default class Pagination extends Component {
 						totalPage > 1 && 
 						<li key={totalPage + 2} className={current !== totalPage ? 'btn' : 'disabled-btn'} 
 							onClick={this.nextPage}>
-							下一页
+							{'>'}
 						</li>
 					}
 				</ul>
@@ -166,7 +166,7 @@ export default class Pagination extends Component {
 				{
 					showQuickJumper && <div className="quicker-jump">
 						<input onChange={this.handelChange} defaultValue={inputValue}></input>
-						<a onClick={this.quickJump}>跳转</a>
+						<a onClick={this.quickJump}>jump</a>
 					</div>
 				}
 				<select className="select" value={currentPageSize} onChange={this.selectedChange}>
@@ -186,7 +186,7 @@ export default class Pagination extends Component {
 					}
 				</select>
 				{
-					showTotal && <p className="total">总计：{total}条，共{totalPage}页</p>
+					showTotal && <p className="total">总计：<i>{total}</i> 条</p>
 				}
 			</div>
 		)
