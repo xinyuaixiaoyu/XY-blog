@@ -3,6 +3,7 @@
     height: 100%;
     background: url(../../static/images/hero-bg.jpg) no-repeat fixed 0 0;
     background-size: cover;
+    z-index: 2;
     .login-content{
         width: 1000px;
         height: 100%;
@@ -30,7 +31,6 @@
                     height: 70px;
                     font-size: 20px;
                     line-height: 70px;
-                    // animation: loadText 3s steps(11) forwards;
                     overflow: hidden;
                     width: 9em;
                     white-space: nowrap;
@@ -66,14 +66,12 @@
             letter-spacing: 2px;
             color: white;
             text-transform: uppercase;
-            animation: leftTopIn 1s linear 1;
         }
         h1{
             margin: 20px 0;
             color: white;
             font-size: 60px;
             text-transform: uppercase;
-            animation: rightTopIn 2s linear 1;
         }
         p{
             margin: 20px 0;
@@ -82,7 +80,6 @@
             font-weight: 300;
             box-sizing: border-box;
             line-height: 30px;
-            animation: leftBottomIn 3s linear 1;
             letter-spacing: 2px;
         }
         a{
@@ -96,7 +93,6 @@
             border: none;
             font-weight: 500;
             cursor: pointer;
-            animation: rightBottomIn 4s linear 1;
         }
         a:hover{
             transition: background-color 0.5s;
@@ -106,7 +102,6 @@
     .main-content-right{
         float: right;
         margin-top: 200px;
-        animation: upDown 4s linear 1;
         h3{
             button{
                 text-transform: uppercase;

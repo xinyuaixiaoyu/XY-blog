@@ -74,9 +74,11 @@ class BasicLayouts extends Component {
 						</div>
 					</div>
 				</div> 
-				{/* <div className={isLogin ? 'login-hide' : 'login-show'}>
-					<Login hideLogin={this.hideLogin}></Login>
-				</div> */}
+				<div className={!isLogin ? "login-show" : 'login-hide'}>
+					{
+						!isLogin ? <Login hideLogin={this.hideLogin}></Login> : ''
+					}
+				</div>
 			</div>
 		)
 	}
