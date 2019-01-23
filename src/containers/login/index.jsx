@@ -57,6 +57,7 @@ export default class Login extends Component {
                             {
                                 this.state.menuNum === 2 && 
                                 <form>
+                                    <input type="text" placeholder="啦啦啦"></input>
                                     <input type="text" placeholder="请输入用户名"></input>
                                     <input type="password" placeholder="请输入密码"></input>
                                     <input type="password" placeholder="请重复输入密码"></input>
