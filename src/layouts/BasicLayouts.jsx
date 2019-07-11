@@ -12,7 +12,8 @@ class BasicLayouts extends Component {
 	state = {
 		isLogin: false,
 		total: 0,
-		listData: []
+		listData: [],
+		chouyuyu: 31231
 	}
 
   componentWillMount(){
