@@ -16,36 +16,36 @@ class BasicLayouts extends Component {
 		chouyuyu: 31231
 	}
 
-  componentWillMount(){
+	componentWillMount() {
 		this.currentChange()
 	}
 
 	showLogin = () => {
-		this.setState({isLogin: false})
+		this.setState({ isLogin: false })
 	}
 
 	hideLogin = () => {
-		this.setState({isLogin: true})
-	}
-	
-	currentChange = (current, pageSize) => {
-		axios.post('http://localhost:8888/userList',{current, pageSize},{
-			headers:{
-				contentType: "application/json",
-				charset:"UTF-8"
-			}
-		})
-		.then(res => {
-			this.setState({
-				total: res.data.total,
-				listData: res.data.data
-			})
-		}).catch(err => {
-			console.log(err)
-		})
+		this.setState({ isLogin: true })
 	}
 
-	render () {
+	currentChange = (current, pageSize) => {
+		axios.post('http://localhost:8888/userList', { current, pageSize }, {
+			headers: {
+				contentType: "application/json",
+				charset: "UTF-8"
+			}
+		})
+			.then(res => {
+				this.setState({
+					total: res.data.total,
+					listData: res.data.data
+				})
+			}).catch(err => {
+				console.log(err)
+			})
+	}
+
+	render() {
 		const { isLogin, total, listData } = this.state
 		return (
 			<div className="app-container">
@@ -54,32 +54,30 @@ class BasicLayouts extends Component {
 					<div className="container">
 						<div className="content">
 							<div className="content-left">
-							<ul>
+								<ul>
+									{
+										Array.isArray(listData) && listData.length !== 0 &&
+										listData.map((item, index) => {
+											return (
+												<li key={index}>{item.name}</li>
+											)
+										})
+									}
+								</ul>
 								{
-								Array.isArray(listData) && listData.length !== 0 &&
-									listData.map((item, index) => {
-										return(
-											<li key={index}>{item.name}</li>
-										)
-									}) 
+									total > 0 &&
+									<Pagination total={total} pageList={[1, 2, 3, 4, 5, 10]} currentChange={this.currentChange} showTotal={true} showQuickJumper={true}></Pagination>
 								}
-							</ul>
-							{
-								total > 0 && 
-								<Pagination total={total} pageList={[1,2,3,4,5,10]} currentChange={this.currentChange} showTotal={true} showQuickJumper={true}></Pagination>
-							}
 							</div>
 							<div className="content-right">
 								<Menu></Menu>
 							</div>
 						</div>
 					</div>
-				</div> 
-				<div className={!isLogin ? "login-show" : 'login-hide'}>
-					{
-						!isLogin ? <Login hideLogin={this.hideLogin}></Login> : ''
-					}
 				</div>
+				{/* <div className={isLogin ? 'login-hide' : 'login-show'}>
+					<Login hideLogin={this.hideLogin}></Login>
+				</div> */}
 			</div>
 		)
 	}
